@@ -44,7 +44,6 @@ document.body.onmousedown = function() {
 
 document.body.onmouseup = function() {
     --mouseDown;
-    console.log("yo")
     cursorup();
 }
 
@@ -54,7 +53,6 @@ document.addEventListener('touchend',function(){
 
 function cursorup(){
     selected = document.getElementsByClassName("selected");
-    console.log(selected)
     Array.from(selected).forEach((element)=>{
         element.classList.remove("selected");
     })
@@ -239,6 +237,7 @@ socket.on('endroom',(msg)=>{
 
 body = document.getElementById('body')
 socket.on('disconnect', (reason) => {
+    if (gametime<3){return;}
     console.log('Disconnected from the server');
     disconnect.style.display = 'block';
     disconnect = document.getElementById('disconnect');
