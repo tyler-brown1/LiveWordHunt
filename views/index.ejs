@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordHunt Lobby</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="head">Live WordHunt</div>
+    <div id="host" class="homebutton">Host Game</div>
+    <div id ="join" class="homebutton">Join Game</div>
+    <div id="hostroom" style="visibility:hidden">
+        <h2>Host Room</h2>
+        <div id="homeexit" class="exit">X</div>
+        <form id="hostform">
+            <p class="q">Allow multiple users to have same word:</p>
+            <input type="radio" name="same" value="no" id="nosame">
+            <label for="nosame">No</label>
+            <input type="radio" name="same" value="yes" id="yessame">
+            <label for="yessame">Yes</label><br>
+            <p class="q">Time Limit:</p>
+            <input type="radio" name="timelimit" value="60" id="time1">
+            <label for="time1">60 Seconds</label>
+            <input type="radio" name="timelimit" value="90" id="time2">
+            <label for="time2">90 Seconds</label>
+            <input type="radio" name="timelimit" value="120" id="time3">
+            <label for="time3">120 Seconds</label><br><br>
+            <p class="q">Join as: </p>
+            <input type="text" name="hostname"><br><br>
+            <div id="submithost" onclick = "stuff()" class="button-like">Host Room</div>
+        </form>
+        <h3 id="errortext"></h3>
+    </div>
+    <div id="joinroom" style="visibility:hidden">
+        <h2>Join Room</h2>
+        <form id="joinform" action="\game">
+            <div id="joinexit" class="exit">X</div>
+            <p class="q">Join as: </p>
+            <input type="text" name="name" id="joinname"><br><br>
+            <p class="q">Code: </p>
+            <input type="text" name="room"><br><br>
+            <input type="submit" value="Join Room" class="button-like">
+        </form>
+        <h3 id="errortext2"></h3>
+    </div>
+</body>
+<script src="/js/home.js"></script>
+</html>

@@ -1,0 +1,248 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+html, body{
+    min-height: 100vh;
+    margin: 0;
+}
+body{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: linear-gradient(to bottom, #3498db, #adf); 
+}
+
+#board {
+    border: 2px solid white;
+    border-radius: 15px;
+    height: 27vw;
+    width: 27vw;
+    margin: 0.5% auto;
+    padding: 0.5%;
+    background-color: #3498db;
+    display: grid;
+    grid-template-columns: repeat(4, 25%); /* 4 columns with equal width */
+    grid-template-rows: repeat(4,25%);
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+  
+.letter {
+    background-color: #ccc;
+    text-align: center;
+    align-content: center;
+    box-sizing: border-box; /* Include padding in element's total width and height */
+    color: black;
+    font-size: 4vw;
+    border: 2px solid white;
+    margin: 5%;
+    border-radius: 40%;
+}
+
+#head {
+    width: 40vw;
+    padding: 10px;
+    margin: auto; /* Center the header */
+    height: 4vw;
+    font-size: 4vw;
+    color: white;
+    text-align: center;
+    align-content: center;
+}
+
+#timer{
+    width: 4vw;
+    height: 4vw;
+    margin: auto; /* Center the header */
+    font-size: 2vw;
+    color: #004494;
+    border: 2px solid #000;
+    text-align: center;
+    align-content: center;
+    background-color: white;
+    border-radius: 200px;
+}
+
+.selected {
+    background-color: #aac;
+}
+
+#word{
+    background-color: white;
+    height: 5vw;
+    width: 30vw;
+    border: 2px solid black;
+    margin: 5px auto;
+    padding: 3px;
+    box-sizing: border-box;
+    text-align: center;
+    align-content: center;
+    box-shadow: 4px 4px black;
+    color: black;
+    font-size: 4vw;
+}
+
+.homebutton {
+    background-color: white;
+    border: 2px solid black;
+    width: 70vw;
+    height: 12vw;
+    font-size: 60px;
+    box-shadow: 5px 5px black;
+    text-align: center;
+    align-content: center;
+    padding: 5px;
+    margin: 10px auto;
+    transition: background-color .3s ease;
+}
+
+.homebutton:hover{
+    background-color: #eee;
+    font-size: 63px;
+}
+
+#hostroom{
+    position: absolute;
+    width: 80vw;
+    height: 50vh;
+    background-color: white;
+    border: 2px solid black;
+    top: 20%;
+    left: 10%;
+    padding: 10px;
+}
+
+#joinroom{
+    position: absolute;
+    width: 80vw;
+    height: 50vh;
+    background-color: white;
+    border: 2px solid black;
+    top: 20%;
+    left: 10%;
+    padding: 10px;
+}
+
+.q{
+    display: inline;
+}
+
+.button-like {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px auto;
+    background-color: #007bff; /* Button background color */
+    color: white; /* Text color */
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px; /* Rounded corners */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for button effect */
+    user-select: none; /* Prevent text selection */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+}
+
+.button-like:hover {
+    background-color: #0056b3; /* Darker background on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Slightly larger shadow on hover */
+}
+
+.button-like:active {
+    background-color: #004494; /* Even darker background on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Smaller shadow on click */
+}
+
+.exit {
+    position: absolute;
+    width: 35px; /* Increased width for better touch target */
+    height: 35px; /* Increased height for better touch target */
+    top: 15px; /* Spaced down from the top */
+    right: 15px; /* Spaced in from the right */
+    background-color: #ff4c4c; /* Softer red color */
+    border-radius: 50%; /* Full circle */
+    text-align: center; /* Center text horizontally */
+    line-height: 35px; /* Center text vertically */
+    font-weight: bold;
+    color: white; /* White text color */
+    border: 2px solid #ff1a1a; /* Softer border color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
+
+.exit:hover {
+    background-color: #ff1a1a; /* Darker red on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+}
+
+.exit:active {
+    background-color: #e60000; /* Even darker red on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Smaller shadow on click */
+}
+
+#userscores{
+    width: 30vw;
+    min-height: 20px;
+    background-color: white;
+    border: 2px solid black;
+    margin: 5px auto;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 80% 20%; /* 4 columns with equal width */
+    grid-auto-rows: 30px;
+    grid-row-gap: 5px;
+    align-items: center;
+}
+
+#userscores div{
+    font-size: 120%;
+    padding: 3px;
+    box-sizing: border-box;
+}
+
+#userscores .toright{
+    text-align: right;
+    color: green;
+}
+
+.isuser{
+    color: #e64;
+}
+
+#startgame{
+    display: block;
+    margin: 10px auto;
+    width: 20vw;
+}
+
+#endscreen{
+    width: 15vw;
+    margin: 5px auto;
+    padding: 10px;
+    border: 2px solid black;
+    background-color: white;
+    align-items: center;
+}
+
+.enditem{
+    height:20px;
+    width: 100%;
+    padding: 3px;
+    text-align: center;
+    box-sizing: border-box;
+    vertical-align: middle;
+    margin: 5px auto;
+
+}
+
+#code {
+    margin: auto;
+    width: 20vw;
+    background-color: white;
+    border: 2px solid black;
+    text-align: center;
+    align-content: center;
+}

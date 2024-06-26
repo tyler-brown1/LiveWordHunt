@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordHunt</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div id="head">Live Wordhunt</div>
+    <div id="timer" style="display: none"></div>
+    <div id="game" style="display:none">
+        <div id = "board"></div>        
+        <div id = "word"></div>
+    </div>
+    <div id="userscores"></div>
+    <div id="endscreen" style="display: none"></div>
+    <div id="startgame" class="button-like" style="visibility: hidden;">Start Game</div>
+    <div id="code" value="<%= room %>"> Code: <%= room %></div>
+    <div id="name" value="<%= name %>"></div>
+
+</body>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/game.js"></script>
+</html>
