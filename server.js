@@ -169,12 +169,10 @@ function handle_start(socket){
   socket.on('start',()=>{
     let user = socketMap.get(socket.id);
     if(user==undefined){
-      console.log("user not found")
       return
     }
     let room = rooms.get(user.room);
     if(room==undefined || room.started){
-      console.log("not found")
       return
     }
     letters = boardgen()
