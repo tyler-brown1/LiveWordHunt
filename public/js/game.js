@@ -44,19 +44,20 @@ document.body.onmousedown = function() {
 
 document.body.onmouseup = function() {
     --mouseDown;
+    console.log("yo")
     cursorup();
 }
 
-document.body.ontouchend = function(){
+document.addEventListener('touchend',function(){
     cursorup();
-}
+})
 
 function cursorup(){
     selected = document.getElementsByClassName("selected");
+    console.log(selected)
     Array.from(selected).forEach((element)=>{
         element.classList.remove("selected");
     })
-
     if (isword){
         gottenwords.add(curword)
         socket.emit('word',curword);
