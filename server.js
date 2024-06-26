@@ -175,7 +175,7 @@ function handle_start(socket){
     valid = findWords(letters)
     valid.sort((a,b)=>b.length-a.length)
     gametime = room.rules.gametime
-    console.log(valid.slice(0,7))
+    //console.log(valid.slice(0,10))
     io.to(user.room).emit('startgame',{letters:letters,gametime:gametime,valid:valid})
     room.started = true
 

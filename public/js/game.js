@@ -71,16 +71,12 @@ function handleTiles(e){
         
         if (last != null){
             let [x,y] = last;
-            I = target.getAttribute("i")-x;
-            J = target.getAttribute("j")-y;
-        }
-        else{
-            I = 0
-            J = 0
-        }
+            I = target.getAttribute("i")-x; //x change
+            J = target.getAttribute("j")-y; //y change
 
-        if (last != null && (I<-1 || I>1 || J<-1 || J>1)){
-            return;
+            if (I<-1 || I>1 || J<-1 || J>1){
+                return;
+            }
         }
 
         e.target.classList.add("selected");
@@ -147,8 +143,11 @@ function endScreen(){
 
 const socket = io();
 
-code = document.getElementById('code').getAttribute('value')
-user = document.getElementById('name').getAttribute('value')
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+code = urlParams.get("room");
+user = urlParams.get("name");
+codediv.innerText = `Code: ${code}`;
 
 var userdata;
 socket.emit('join',{user:user,room:code})
