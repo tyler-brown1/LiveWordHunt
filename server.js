@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.render('index')
+  res.sendFile(__dirname +'/public/html/index.html');
 });
 
 
@@ -18,8 +18,11 @@ app.get('/game', (req, res) => {
     res.redirect('/');
     return;
   }
-  if(rooms.get(room)==undefined){res.redirect('/')};
-  res.render('game',{room:room,name:name});
+  if(rooms.get(room)==undefined){
+    res.redirect('/')
+    return;
+  };
+  res.sendFile(__dirname +'/public/html/game.html');
 });
 
 const {trie,findWords} = require('./trie')
@@ -75,12 +78,15 @@ app.get("/rooms/:num",(req,res)=>{
   let room = rooms.get(num);
   if(room==undefined){
     res.send('room does not exist');
+    return
   }
   if(!room.rules.samewords){
     res.json(room);
+    return
   }
   else{
     res.json({...room,words: Array.from(room.words)})
+    return
   }
 
 });
