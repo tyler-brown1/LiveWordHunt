@@ -1,13 +1,15 @@
-const board = document.getElementById("board")
-board.innerHTML = ""
+const board = document.getElementById("board");
+board.innerHTML = "";
 
-const wordbox = document.getElementById("word")
-const userscores = document.getElementById("userscores")
-const game = document.getElementById("game")
-const endscreen = document.getElementById("endscreen")
-const timer = document.getElementById("timer")
-const head = document.getElementById("head")
-const codediv = document.getElementById("code")
+const wordbox = document.getElementById("word");
+const userscores = document.getElementById("userscores");
+const game = document.getElementById("game");
+const endscreen = document.getElementById("endscreen");
+const timer = document.getElementById("timer");
+const head = document.getElementById("head");
+const codediv = document.getElementById("code");
+const topmsg = document.getElementById("topmsg");
+const topbox = document.getElementById("topbox");
 
 var curword = ""
 var last = null;
@@ -77,7 +79,7 @@ function handleTiles(e){
 
         if (e.type == 'touchmove'){
             target = document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY);
-            if(target == board) return;
+            if(!target.classList.contains('letter')) return;
         }
 
         if (curword.length>9 || target.classList.contains("selected")) return;
@@ -194,7 +196,7 @@ socket.on('startgame',(msg)=>{
     buildboard(msg.letters);
     game.style.display = 'block';
     started = true;
-    timer.style.display = 'block';
+    topbox.style.display = 'flex';
     head.style.display = 'none';
     timer.innerText = gametime;
     const timeinterval = setInterval(()=>{
@@ -210,11 +212,21 @@ socket.on('startgame',(msg)=>{
 
 socket.on('msg',(msg)=>{
     console.log(msg);
+    if(msg.charAt(0)=="+"){
+        topmsg.innerText = msg;
+        topmsg.style.backgroundColor = "#ff7";
+        setTimeout(function(){topmsg.style.backgroundColor = "#fff"},200);
+    }
+    else{
+        topmsg.innerText = "TAKEN";
+        topmsg.style.backgroundColor = "#f77";
+        setTimeout(function(){topmsg.style.backgroundColor = "#fff"},200);
+    }
 });
 
 function enddissapear(){
     game.style.display = 'none';
-    timer.style.display = 'none';
+    topbox.style.display = 'none';
 }
 
 socket.on('endroom',(msg)=>{

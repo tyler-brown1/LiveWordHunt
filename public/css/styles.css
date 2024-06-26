@@ -42,8 +42,7 @@ body{
 
 #head {
     padding: 10px;
-    margin: 10px auto; /* Center the header */
-    height: 4vw;
+    margin: 10px auto;
     font-size: 30px;
     color: white;
     text-align: center;
@@ -53,7 +52,7 @@ body{
 #timer{
     width: 60px;
     height: 60px;
-    margin: auto; /* Center the header */
+    margin: 10px;
     font-size: 34px;
     background-color: #ccc;
     color: #004494;
@@ -63,6 +62,27 @@ body{
     border-radius: 20px;
 }
 
+#topbox{
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+    margin: auto;
+}
+
+#topmsg{
+    width: 150px;
+    height: 60px;
+    margin: 10px;
+    font-size: 34px;
+    background-color: #ccc;
+    border: 2px solid white;
+    text-align: center;
+    align-content: center;
+    border-radius: 20px;
+    color: rgb(10,10,80);
+    transition: background-color .3s;
+
+}
 .selected {
     background-color: #aac;
 }
