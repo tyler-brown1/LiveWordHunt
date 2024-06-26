@@ -44,7 +44,14 @@ document.body.onmousedown = function() {
 
 document.body.onmouseup = function() {
     --mouseDown;
+    cursorup();
+}
 
+document.body.ontouchend = function(){
+    cursorup();
+}
+
+function cursorup(){
     selected = document.getElementsByClassName("selected");
     Array.from(selected).forEach((element)=>{
         element.classList.remove("selected");
@@ -62,24 +69,29 @@ document.body.onmouseup = function() {
     wordbox.style.backgroundColor = "#fff"
 }
 
-
 function handleTiles(e){
     target = e.target
-    if (e.type == 'mouseover' && mouseDown || e.type == 'mousedown') {
+    if(e.type == "touchmove" || e.type == "touchstart"){
+        e.preventDefault();
+    }
+    if ((e.type == 'mouseover' && mouseDown) || e.type == 'mousedown' || e.type == 'touchstart' || e.type == 'touchmove') {
+
+        if (e.type == 'touchmove'){
+            target = document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY);
+            if(target == board) return;
+        }
 
         if (curword.length>9 || target.classList.contains("selected")) return;
-        
         if (last != null){
-            let [x,y] = last;
-            I = target.getAttribute("i")-x; //x change
-            J = target.getAttribute("j")-y; //y change
+            let [i,j] = last;
+            let I = target.getAttribute("i")-i; //i change
+            let J = target.getAttribute("j")-j; //j change
 
             if (I<-1 || I>1 || J<-1 || J>1){
                 return;
             }
         }
-
-        e.target.classList.add("selected");
+        target.classList.add("selected");
         curword += target.innerText;
         wordbox.innerText = curword;
         if(validwords.has(curword)){
@@ -111,6 +123,8 @@ function buildboard(letters){
 
             tile.addEventListener('mouseover',handleTiles);
             tile.addEventListener('mousedown',handleTiles);
+            tile.addEventListener('touchdown',handleTiles);
+            tile.addEventListener('touchmove',handleTiles);
 
             board.appendChild(tile);
         }
@@ -168,6 +182,9 @@ socket.on('update', (msg) => {
     updatescores();
 });
 
+var gametime;
+socket.on('time',(msg)=>{gametime=msg;});
+
 socket.on('error', (msg) => {
     console.log(`Error. ${msg}`);
     window.location.href = "/";
@@ -176,14 +193,18 @@ socket.on('error', (msg) => {
 socket.on('startgame',(msg)=>{
     codediv.style.display = 'none';
     buildboard(msg.letters);
-    time=msg.gametime
     game.style.display = 'block';
     started = true;
     timer.style.display = 'block';
     head.style.display = 'none';
-    setInterval(()=>{
-        time--;
-        timer.innerText = time;
+    timer.innerText = gametime;
+    const timeinterval = setInterval(()=>{
+        gametime--;
+        timer.innerText = gametime;
+        if(gametime<=0){
+            clearInterval(timeinterval);
+            enddissapear();
+        }
     },1000)
     validwords = new Set(msg.valid)
 });
@@ -192,9 +213,13 @@ socket.on('msg',(msg)=>{
     console.log(msg);
 });
 
-socket.on('endroom',(msg)=>{
+function enddissapear(){
     game.style.display = 'none';
     timer.style.display = 'none';
+}
+
+socket.on('endroom',(msg)=>{
+    enddissapear();
     userdata = msg.scores
     updatescores();
 
@@ -211,4 +236,11 @@ socket.on('endroom',(msg)=>{
 
 });
 
-
+body = document.getElementById('body')
+socket.on('disconnect', (reason) => {
+    console.log('Disconnected from the server');
+    disconnect.style.display = 'block';
+    disconnect = document.getElementById('disconnect');
+    body.replaceChildren()
+    body.appendChild(disconnect);
+});

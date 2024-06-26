@@ -160,6 +160,7 @@ function handle_join(socket){
       cur.host = socket.id;
       socket.emit('ishost')
     };
+    socket.emit('time',cur.rules.gametime)
     cur.users+=1;
     io.to(room).emit(`update`,updateroom(cur));
   });
@@ -180,7 +181,7 @@ function handle_start(socket){
     valid.sort((a,b)=>b.length-a.length)
     gametime = room.rules.gametime
     //console.log(valid.slice(0,10))
-    io.to(user.room).emit('startgame',{letters:letters,gametime:gametime,valid:valid})
+    io.to(user.room).emit('startgame',{letters:letters,valid:valid})
     room.started = true
 
     setTimeout(()=>{
@@ -196,7 +197,7 @@ wordtest = /^[A-Z]{2,10}$/;
 function handle_word(socket){
   socket.on('word',(word)=>{
     let user = socketMap.get(socket.id);
-    if(!wordtest.test(word)){
+    if(!wordtest.test(word) || user==undefined){
       socket.emit('error');
       socket.disconnect(true);
       return;

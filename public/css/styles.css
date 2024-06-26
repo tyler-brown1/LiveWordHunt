@@ -13,11 +13,11 @@ body{
 
 #board {
     border: 2px solid white;
-    border-radius: 15px;
-    height: 27vw;
-    width: 27vw;
-    margin: 0.5% auto;
-    padding: 0.5%;
+    border-radius: 12px;
+    height: 330px;
+    width: 330px;
+    margin: 5px auto;
+    padding: 6px;
     background-color: #3498db;
     display: grid;
     grid-template-columns: repeat(4, 25%); /* 4 columns with equal width */
@@ -34,34 +34,33 @@ body{
     align-content: center;
     box-sizing: border-box; /* Include padding in element's total width and height */
     color: black;
-    font-size: 4vw;
+    font-size: 60px;
     border: 2px solid white;
-    margin: 5%;
-    border-radius: 40%;
+    margin: 2px;
+    border-radius: 40px;
 }
 
 #head {
-    width: 40vw;
     padding: 10px;
-    margin: auto; /* Center the header */
+    margin: 10px auto; /* Center the header */
     height: 4vw;
-    font-size: 4vw;
+    font-size: 30px;
     color: white;
     text-align: center;
     align-content: center;
 }
 
 #timer{
-    width: 4vw;
-    height: 4vw;
+    width: 60px;
+    height: 60px;
     margin: auto; /* Center the header */
-    font-size: 2vw;
+    font-size: 34px;
+    background-color: #ccc;
     color: #004494;
-    border: 2px solid #000;
+    border: 2px solid white;
     text-align: center;
     align-content: center;
-    background-color: white;
-    border-radius: 200px;
+    border-radius: 20px;
 }
 
 .selected {
@@ -70,17 +69,16 @@ body{
 
 #word{
     background-color: white;
-    height: 5vw;
-    width: 30vw;
+    height: 35px;
+    width: 280px;
     border: 2px solid black;
     margin: 5px auto;
     padding: 3px;
-    box-sizing: border-box;
     text-align: center;
     align-content: center;
     box-shadow: 4px 4px black;
     color: black;
-    font-size: 4vw;
+    font-size: 35px;
 }
 
 .homebutton {
@@ -88,7 +86,7 @@ body{
     border: 2px solid black;
     width: 70vw;
     height: 12vw;
-    font-size: 60px;
+    font-size: 12vw;
     box-shadow: 5px 5px black;
     text-align: center;
     align-content: center;
@@ -99,7 +97,7 @@ body{
 
 .homebutton:hover{
     background-color: #eee;
-    font-size: 63px;
+    font-size: 13vw;
 }
 
 #hostroom{
@@ -184,23 +182,24 @@ body{
 }
 
 #userscores{
-    width: 30vw;
+    width: 250px;
     min-height: 20px;
     background-color: white;
     border: 2px solid black;
     margin: 5px auto;
-    padding: 10px;
+    padding: 5px;
     display: grid;
     grid-template-columns: 80% 20%; /* 4 columns with equal width */
-    grid-auto-rows: 30px;
+    grid-auto-rows: 35px;
     grid-row-gap: 5px;
     align-items: center;
 }
 
 #userscores div{
-    font-size: 120%;
-    padding: 3px;
+    font-size: 20px;
+    padding: 4px;
     box-sizing: border-box;
+    align-content: center;
 }
 
 #userscores .toright{
@@ -215,7 +214,7 @@ body{
 #startgame{
     display: block;
     margin: 10px auto;
-    width: 20vw;
+    width: 150px;
 }
 
 #endscreen{
@@ -240,9 +239,19 @@ body{
 
 #code {
     margin: auto;
-    width: 20vw;
+    width: 150px;
     background-color: white;
     border: 2px solid black;
     text-align: center;
     align-content: center;
+}
+
+#disconnect{
+    width: 300px;
+    font-size: 20px;
+    color: red;
+    background-color: white;
+    border: 2px solid black;
+    margin: auto;
+    display: none;
 }
