@@ -215,12 +215,12 @@ socket.on('msg',(msg)=>{
     if(msg.charAt(0)=="+"){
         topmsg.innerText = msg;
         topmsg.style.backgroundColor = "#ff7";
-        setTimeout(function(){topmsg.style.backgroundColor = "#fff"},200);
+        setTimeout(function(){topmsg.style.backgroundColor = "#ccc"},200);
     }
     else{
         topmsg.innerText = "TAKEN";
         topmsg.style.backgroundColor = "#f77";
-        setTimeout(function(){topmsg.style.backgroundColor = "#fff"},200);
+        setTimeout(function(){topmsg.style.backgroundColor = "#ccc"},200);
     }
 });
 
