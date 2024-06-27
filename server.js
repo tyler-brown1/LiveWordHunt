@@ -176,10 +176,14 @@ function handle_start(socket){
     if(room==undefined || room.started){
       return
     }
-    letters = boardgen()
-    valid = findWords(letters)
-    valid.sort((a,b)=>b.length-a.length)
+
+    do {
+      letters = boardgen();
+      valid = findWords(letters);
+    } while (valid.length < 150);
+
     gametime = room.rules.gametime
+    //valid.sort((a,b)=>b.length-a.length)
     //console.log(valid.slice(0,10))
     io.to(user.room).emit('startgame',{letters:letters,valid:valid})
     room.started = true
