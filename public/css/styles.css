@@ -60,6 +60,10 @@ body{
     align-content: center;
     border-radius: 20px;
     margin: 5px;
+    padding: 0px;
+    display: flex;           /* Added */
+    justify-content: center; /* Added */
+    align-items: center;     /* Added */
 }
 
 #topbox{
@@ -81,6 +85,10 @@ body{
     border-radius: 20px;
     color: rgb(10,10,80);
     transition: background-color .3s;
+    padding: 0px;
+    display: flex;           /* Added */
+    justify-content: center; /* Added */
+    align-items: center;     /* Added */
 }
 
 .selected {
