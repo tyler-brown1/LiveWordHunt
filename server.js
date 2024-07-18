@@ -196,7 +196,7 @@ function handle_start(socket){
 }
 
 pointvalues = [1,3,6,9,12,14,16,18];
-wordtest = /^[A-Z]{2,10}$/;
+wordtest = /^[A-Z]{2,12}$/;
 
 function handle_word(socket){
   socket.on('word',(word)=>{
@@ -281,3 +281,20 @@ function endInfo(num){
   }
   return res;
 }
+
+/*
+ct = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+z = 0
+for (i=0;i<400000;i++){
+  x = boardgen();
+  y = findWords(x).length;
+  ct[Math.ceil(y/25)-1]++;
+  if(y>=500){console.log(y,x)}
+}
+for(i=ct.length-2;i>=0;i--){
+  ct[i]+=ct[i+1];
+}
+for(i=0;i<ct.length;i++){
+  console.log(`${ct[i]/400000} > ${25*i}`)
+}
+*/

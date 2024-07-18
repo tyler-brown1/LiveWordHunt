@@ -82,7 +82,7 @@ function handleTiles(e){
             if(!target.classList.contains('letter')) return;
         }
 
-        if (curword.length>9 || target.classList.contains("selected")) return;
+        if (curword.length>11 || target.classList.contains("selected")) return;
         if (last != null){
             let [i,j] = last;
             let I = target.getAttribute("i")-i; //i change
