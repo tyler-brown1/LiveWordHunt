@@ -24,7 +24,7 @@ body{
     padding: 6px;
     background-color: #3498db;
     display: grid;
-    grid-template-columns: repeat(4, 25%); /* 4 columns with equal width */
+    grid-template-columns: repeat(4, 25%);
     grid-template-rows: repeat(4,25%);
 }
   
@@ -32,7 +32,7 @@ body{
     background-color: #ccc;
     text-align: center;
     align-content: center;
-    box-sizing: border-box; /* Include padding in element's total width and height */
+    box-sizing: border-box; 
     color: black;
     font-size: 60px;
     border: 2px solid white;
@@ -61,9 +61,9 @@ body{
     border-radius: 20px;
     margin: 5px;
     padding: 0px;
-    display: flex;           /* Added */
-    justify-content: center; /* Added */
-    align-items: center;     /* Added */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #topbox{
@@ -86,9 +86,9 @@ body{
     color: rgb(10,10,80);
     transition: background-color .3s;
     padding: 0px;
-    display: flex;           /* Added */
-    justify-content: center; /* Added */
-    align-items: center;     /* Added */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .selected {
@@ -112,8 +112,8 @@ body{
 .homebutton {
     background-color: white;
     border: 2px solid black;
-    width: 800px;
-    height: 150px;
+    width: 70vw;
+    height: 12vw;
     font-size: 100px;
     box-shadow: 5px 5px black;
     text-align: center;
@@ -161,45 +161,45 @@ body{
     display: inline-block;
     padding: 10px 20px;
     margin: 5px auto;
-    background-color: #007bff; /* Button background color */
-    color: white; /* Text color */
+    background-color: #007bff;
+    color: white;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
-    border-radius: 5px; /* Rounded corners */
-    border: none; /* Remove default border */
-    cursor: pointer; /* Pointer cursor on hover */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for button effect */
-    user-select: none; /* Prevent text selection */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    user-select: none;
+    transition: background-color 0.3s, box-shadow 0.3s; 
 }
 
 .button-like:hover {
-    background-color: #0056b3; /* Darker background on hover */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Slightly larger shadow on hover */
+    background-color: #0056b3; 
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
 }
 
 .button-like:active {
-    background-color: #004494; /* Even darker background on click */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Smaller shadow on click */
+    background-color: #004494;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .exit {
     position: absolute;
-    width: 35px; /* Increased width for better touch target */
-    height: 35px; /* Increased height for better touch target */
-    top: 15px; /* Spaced down from the top */
-    right: 15px; /* Spaced in from the right */
-    background-color: #ff4c4c; /* Softer red color */
-    border-radius: 50%; /* Full circle */
-    text-align: center; /* Center text horizontally */
-    line-height: 35px; /* Center text vertically */
+    width: 35px; 
+    height: 35px;
+    top: 15px;
+    right: 15px;
+    background-color: #ff4c4c;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px; 
     font-weight: bold;
-    color: white; /* White text color */
-    border: 2px solid #ff1a1a; /* Softer border color */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+    color: white; 
+    border: 2px solid #ff1a1a; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .exit:hover {
